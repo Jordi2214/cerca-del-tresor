@@ -15,7 +15,7 @@ def verificar():
     resposta = request.form.get('planta').lower()  # Convertim la resposta a minúscules
     
     if resposta == 'potus':  # Canvia 'potus' per la resposta correcta
-        return render_template('index.html', missatge="Correcte! Aquí tens el teu codi de seguretat: ABC123")
+        return render_template('index.html', missatge="Correcte! La contrasenya del .rar es ABC123. ")
     else:
         return render_template('index.html', missatge="Incorrecte! Torna-ho a provar.")
 
