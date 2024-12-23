@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerca del Tresor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Benvinguda a la Cerca del Tresor!</h1>
+        <p>Per continuar, mira la imatge i respon a la pregunta:</p>
+        
+        <!-- Mostrar la imatge -->
+        <img src="{{ url_for('static', filename='css/images/foto_pregunta.png') }}" alt="Pregunta Imatge" style="max-width: 100%; height: auto;">
+
+        <p>Quina planta veus a la imatge? (Escriu la resposta)</p>
+
+        <!-- Formulari amb un input de text per escriure la resposta i autocompletat desactivat -->
+        <form action="/verificar" method="POST" autocomplete="off">
+            <label for="planta">Resposta:</label><br>
+            <input type="text" id="planta" name="planta" required autocomplete="off"><br><br>
+
+            <input type="submit" value="Enviar">
+        </form>
+
+        <!-- Mostrar missatges si la resposta és correcta o incorrecta -->
+        {% if missatge %}
+            <p>{{ missatge }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
